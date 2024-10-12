@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
+    <title>Form</title>
+</head>
+
+<body>
+    <div class="popup" id="popup">
+        <div>
+            <img src="assets/images/icon-success-check.svg" alt="">
+            <p class="popup__title">Message Sent!</p>
+        </div>
+        <p class="popup__text">Thanks for completing the form. We'll be in touch soon!</p>
+    </div>
+    <main class="main">
+        <h1 class="main__title">Contact Us</h1>
+        <form action="POST" class="form" id="contact-form">
+            <div class="form__nameinputs">
+                <div class="form__inputbox">
+                    <label for="first_name" class="form__label">First Name <span>*</span></label>
+                    <input type="text" name="first_name" aria-invalid="false" aria-describedby="name-instructions"
+                        class="form__input" autocomplete="name" id="first-name" required>
+                    <p class="sr-only" id="name-instructions">Enter your first name</p>
+                    <p class="form__error" id="error-firstname" hidden>This field is required</p>
+                </div>
+                <div class="form__inputbox">
+                    <label for="last_name" class="form__label">Last Name <span>*</span></label>
+                    <input type="text" name="last_name" aria-invalid="false" aria-describedby="lastname-instructions"
+                        class="form__input" autocomplete="name" id="last-name" required>
+                    <p class="sr-only" id="lastname-instructions">This field is required</p>
+                    <p class="form__error" id="error-lastname" hidden>Error</p>
+                </div>
+            </div>
+            <div class="form__inputbox">
+                <label for="email" class="form__label">Email <span>*</span></label>
+                <input type="email" name="email" aria-invalid="false" aria-describedby="email-instructions"
+                    class="form__input" autocomplete="email" id="email" required>
+                <p class="sr-only" id="email-instructions">Please enter a valid email address</p>
+                <p class="form__error" id="error-email" hidden>Error</p>
+            </div>
+            <fieldset class="form__inputbox form__inputbox--fieldset" aria-describedby="fieldset-instructions">
+                <legend class="fieldset__title">Query Type <span>*</span></legend>
+                <div class="radio__component">
+                    <div class="form__radiobox">
+                        <input class="form__radioinput" type="radio" name="general" id="general-request">
+                        <label for="general">General Enquiry</label>
+                    </div>
+                    <div class="form__radiobox">
+                        <input class="form__radioinput" type="radio" name="support" id="support-request">
+                        <label for="support">Support Request</label>
+                    </div>
+                </div>
+                <p class="sr-only" id="fieldset-instructions">Select the type of your request, wheter it is a general
+                    enquiry, or a support request</p>
+                <p class="form__error" id="error-fieldset" hidden>Please select a query type</p>
+            </fieldset>
+            <div class="form__inputbox">
+                <label for="message" class="form__label">Message <span>*</span></label>
+                <textarea name="message" id="message" aria-invalid="false" aria-describedby="message-instructions"
+                    class="form__input" rows="10" cols="15" required></textarea>
+                <p id="message-instructions" class="sr-only">Write your message for the company.</p>
+                <p class="form__error" id="error-message" hidden>This field is required</p>
+            </div>
+            <div class="form__consent">
+                <div id="consent-box">
+                    <input type="checkbox" name="consent" class="form__input form__input--checkbox" aria-invalid="false"
+                        aria-describedby="checkbox-instructions" id="consent-checkbox" required>
+                    <label for="consent" class="form__label form__label--consent">I consent to being contacted by the
+                        team <span>*</span></label>
+                    <p class="sr-only" id="checkbox-instructions">Check the checkbox to inform us of
+                        your consent</p>
+                </div>
+                <p class="form__error" id="error-checkbox" hidden>To submit this form, please consent to being contacted
+                </p>
+            </div>
+            <button class="form__submit">Submit</button>
+        </form>
+    </main>
+</body>
+
+</html>

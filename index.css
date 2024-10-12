@@ -1,0 +1,255 @@
+:root {
+  --light-green: hsl(148, 38%, 91%);
+  --green-600: hsl(169, 82%, 27%);
+  --red: hsl(0, 66%, 54%);
+  --white: hsl(0, 0%, 100%);
+  --grey-500: hsl(186, 15%, 59%);
+  --grey-900: hsl(187, 24%, 22%);
+
+  --ff-karla: "Karla", sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--ff-karla);
+}
+
+body {
+  background-color: var(--light-green);
+  height: 100%;
+}
+
+.main {
+  background-color: var(--white);
+  margin: 2em 1em;
+  border-radius: 15px;
+  padding: 1.3rem;
+}
+
+.form {
+  margin-top: 2rem;
+}
+
+.form__inputbox {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.form__inputbox--fieldset {
+  border: none;
+}
+
+.fieldset__title {
+  margin-bottom: 1rem;
+}
+
+.form__radiobox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: solid 1px var(--grey-500);
+  border-radius: 5px;
+  margin-bottom: 0.7rem;
+  padding: 1rem 1.5rem;
+}
+
+.radio__selected {
+  background-color: var(--light-green);
+  border: solid 1px var(--green-600);
+}
+
+.form__radiobox:hover,
+.form__radiobox > *:hover {
+  cursor: pointer;
+}
+
+.form__consent {
+  margin: 2rem 0rem;
+}
+
+.form__consent div {
+  display: flex;
+  align-items: center;
+}
+
+.form__consent div:hover,
+.form__consent div > *:hover {
+  cursor: pointer;
+}
+
+.form__label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 16px;
+}
+
+.form__label--consent {
+  display: block;
+  margin: 0;
+  margin-left: 1rem;
+  width: 80%;
+  color: var(--grey-900);
+}
+
+.form__label span {
+  color: var(--green-600);
+}
+
+[aria-invalid="true"] {
+  border: solid 1px var(--red) !important;
+}
+
+.form__input {
+  border-radius: 5px;
+  border: solid 1px var(--grey-500);
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  resize: none;
+}
+
+.form__input--checkbox {
+  accent-color: var(--green-600);
+  height: 17px;
+  width: 17px;
+}
+
+.form__radioinput {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--green-600);
+}
+
+.form__input:hover,
+.form__input:focus {
+  border: solid 1px var(--green-600);
+  cursor: pointer;
+}
+
+.form__error {
+  color: var(--red);
+  margin-top: 0.5rem;
+}
+
+.form__submit {
+  color: var(--white);
+  background-color: var(--green-600);
+  width: 100%;
+  border: none;
+  border-radius: 7px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: 1rem 0rem;
+}
+
+.form__submit:hover {
+  background-color: hsl(170, 82%, 15%);
+  cursor: pointer;
+}
+
+.popup {
+  position: absolute;
+  background-color: hsl(170, 82%, 15%);
+  color: var(--white);
+  width: fit-content;
+  top: 0;
+  padding: 1rem;
+  border-radius: 10px;
+  left: 5%;
+  right: 5%;
+  transform: translateY(-100%);
+  transition: 0.5s;
+}
+
+.popup--active {
+  transform: translateY(10%);
+}
+
+.popup div {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.7rem;
+}
+
+.popup__title {
+  font-size: 1.2rem;
+}
+
+.popup__text {
+  font-size: 0.8rem;
+  color: var(--grey-500);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+@media (min-width: 35rem) {
+  .main {
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .form__nameinputs {
+    width: 100%;
+    display: flex;
+  }
+
+  .form__inputbox {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .form__nameinputs .form__inputbox:nth-child(2) {
+    margin-left: 0.7rem;
+  }
+
+  .form__radiobox {
+    width: 100%;
+  }
+
+  .form__radiobox + .form__radiobox {
+    margin-left: 0.7rem;
+  }
+
+  .radio__component {
+    display: flex;
+  }
+
+  .form__label--consent {
+    width: auto;
+    display: inline;
+  }
+
+  textarea {
+    height: 6rem;
+  }
+
+  .popup {
+    position: absolute;
+    z-index: 100;
+    background-color: hsl(170, 82%, 15%);
+    color: var(--white);
+    width: fit-content;
+    top: 0;
+    padding: 1rem;
+    border-radius: 10px;
+    left: 50%;
+    transform: translateY(-100%) translateX(-50%);
+    transition: 0.5s;
+  }
+
+  .popup--active {
+    transform: translateY(10%) translateX(-50%);
+  }
+}
